@@ -152,8 +152,9 @@ public class UpiIndiaPlugin implements FlutterPlugin, MethodCallHandler, Activit
         // Build the query and initiate the transaction.
         try {
             String uriString = "upi://pay?pa="+receiverUpiId+
-                    "&pn="+Uri.encode(receiverName)+
-                    "&am="+Uri.encode(amount);
+                    "&pn="+receiverUpiId+
+                    "&am="+Uri.encode(amount)+
+                    "&mam="+Uri.encode(amount);
             if (transactionNote != null) uriString += "&tn=" + Uri.encode(transactionNote);
             if (transactionRefId != null) uriString += "&tr=" + Uri.encode(transactionRefId);
             if (currency == null) uriString += "&cu=INR";
